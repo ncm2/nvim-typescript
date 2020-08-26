@@ -40,7 +40,6 @@ call dein#add('Shougo/denite.nvim')
 ```
 
 For vim-plug:
-
 ```
 " Vim-Plug
 " REQUIRED: Add a syntax file. YATS is the best
@@ -53,11 +52,9 @@ Plug 'Shougo/denite.nvim'
 ```
 
 Finally, to enable async completion, if included:
-
 ```
 " Enable deoplete at startup
-
-  let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 ```
 
 ## Limitation
