@@ -26,29 +26,35 @@ By default, this plugin will look in your `node_modules` folder first for typesc
 npm -g install typescript
 ```
 
-Then add the following plugins. This example uses Dein.vim, but any plugin manager will work.
+Then add the following plugins. For Dein.vim as your plugin manager:
 
 ```viml
- " Dein
- # REQUIRED: Add a syntax file. YATS is the best
-  call dein#add('HerringtonDarkholme/yats.vim')
-  call dein#add('mhartington/nvim-typescript', {'build': './install.sh'})
- " For async completion
-  call dein#add('Shougo/deoplete.nvim')
- " For Denite features
-  call dein#add('Shougo/denite.nvim')
+" Dein
+" REQUIRED: Add a syntax file. YATS is the best
+call dein#add('HerringtonDarkholme/yats.vim')
+call dein#add('ncm2/nvim-typescript', {'build': './install.sh'})
+" For async completion
+call dein#add('Shougo/deoplete.nvim')
+" For Denite features
+call dein#add('Shougo/denite.nvim')
+```
 
+For vim-plug:
 
- " Vim-Plug
- # REQUIRED: Add a syntax file. YATS is the best
-  Plug 'HerringtonDarkholme/yats.vim'
-  Plug 'mhartington/nvim-typescript'
- " For async completion
-  Plug 'Shougo/deoplete.nvim'
- " For Denite features
-  Plug 'Shougo/denite.nvim'
+```
+" Vim-Plug
+" REQUIRED: Add a syntax file. YATS is the best
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'ncm2/nvim-typescript'
+" For async completion
+Plug 'Shougo/deoplete.nvim'
+" For Denite features
+Plug 'Shougo/denite.nvim'
+```
 
+Finally, to enable async completion, if included:
 
+```
 " Enable deoplete at startup
 
   let g:deoplete#enable_at_startup = 1
@@ -72,14 +78,12 @@ See:
 There are a few things you'll have to modify in your nvim config in order to be able to effectively work on this plugin:
 
 ```viml
-  call dein#local('~/GitHub', {},['nvim-typescript'])
-  let $NVIM_NODE_LOG_FILE='nvim-node.log'
-  let $NVIM_NODE_LOG_LEVEL='warn'
-
+call dein#local('~/GitHub', {},['nvim-typescript'])
+let $NVIM_NODE_LOG_FILE='nvim-node.log'
+let $NVIM_NODE_LOG_LEVEL='warn'
 ```
- This plug will try to log most things to warn as the node-client logs a lot of verbose output to debug/info.
+This plug will try to log most things to warn as the node-client logs a lot of verbose output to debug/info.
  You will now be able to `tail -f /PATH_TO/nvim-node.log`, and see debug output appear.
-
 
 ## TODOS
 
